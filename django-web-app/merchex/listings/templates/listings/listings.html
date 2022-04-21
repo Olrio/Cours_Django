@@ -1,0 +1,22 @@
+{% extends 'listings/base.html' %}
+
+{% block content %}
+<h1>Listings</h1>
+<p>Liste des annonces pour les articles</p>
+<p>Voici les
+    {%if listings|length < 5 %}
+        quelques
+    {%elif listings|length < 10 %}
+        nombreux
+    {% else %}
+        innombrables
+    {% endif %}
+    articles que nous proposons
+</p>
+<ul>
+    {% for listing in listings %}
+    <li>{{listing.title}}</li>
+    {% endfor %}
+</ul>
+
+{% endblock %}
